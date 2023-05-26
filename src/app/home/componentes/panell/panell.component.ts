@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ResultService } from '../../services/result.service';
 
 @Component({
@@ -8,41 +7,43 @@ import { ResultService } from '../../services/result.service';
   styleUrls: ['./panell.component.css'],
 })
 export class PanellComponent {
-  @Output() importeComponenteHijoChange = new EventEmitter<number>();
+  numeroPaginas: number = 0;
+  numeroIdiomas: number = 0;
 
-  myForm: FormGroup;
-  importe: number = 0;
+  @Output() precioActualizado: EventEmitter<number> =
+    new EventEmitter<number>();
 
-  constructor(private resultService: ResultService) {
-    this.myForm = new FormGroup({
-      numeroPaginas: new FormControl('', Validators.required),
-      numeroIdiomas: new FormControl('', Validators.required),
-    });
+  constructor(private resultService: ResultService) {}
+
+  incrementarPaginas() {
+    this.numeroPaginas++;
+    this.actualizarPrecio();
   }
 
-  calcularResultado() {
-    if (this.myForm.valid) {
-      const numeroPaginas = this.myForm.value.numeroPaginas;
-      const numeroIdiomas = this.myForm.value.numeroIdiomas;
-
-      if (numeroPaginas === '' || numeroIdiomas === '') {
-        this.importe = 0;
-      } else {
-        this.importe = this.resultService.calcularResultado(
-          numeroPaginas,
-          numeroIdiomas
-        );
-      }
-      // Emitir el importe del componente hijo al componente padre
-      this.importeComponenteHijoChange.emit(this.importe);
+  decrementarPaginas() {
+    if (this.numeroPaginas > 0) {
+      this.numeroPaginas--;
+      this.actualizarPrecio();
     }
   }
-  verificarVacio(controlName: string) {
-    const control = this.myForm.get(controlName);
 
-    if (control && control.value === '') {
-      this.importe = 0;
-      this.importeComponenteHijoChange.emit(this.importe);
+  incrementarIdiomas() {
+    this.numeroIdiomas++;
+    this.actualizarPrecio();
+  }
+
+  decrementarIdiomas() {
+    if (this.numeroIdiomas > 0) {
+      this.numeroIdiomas--;
+      this.actualizarPrecio();
     }
+  }
+
+  private actualizarPrecio() {
+    const precioTotal = this.resultService.calcularResultado(
+      this.numeroPaginas,
+      this.numeroIdiomas
+    );
+    this.precioActualizado.emit(precioTotal);
   }
 }

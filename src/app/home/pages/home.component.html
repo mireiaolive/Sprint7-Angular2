@@ -16,7 +16,7 @@
     </label>
     <app-home-panell
       *ngIf="mostrarInputsFlag"
-      (importeComponenteHijoChange)="sumarImporte($event)"
+      (precioActualizado)="actualizarPrecio($event)"
     ></app-home-panell>
     <br />
     <label for="checkbox2">
@@ -42,6 +42,6 @@
     </label>
   </div>
   <div class="col-12 my-1">
-    <p class="fs-5">Precio: {{ total }}€</p>
+    <p class="fs-5">Precio: {{ precioTotal + total }}€</p>
   </div>
 </div>

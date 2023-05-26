@@ -9,7 +9,7 @@ export class HomeComponent {
   total: number = 0;
   primerCheckbox: boolean = false;
   mostrarInputsFlag: boolean = false;
-  importeComponenteHijo: number = 0;
+  precioTotal: number = 0;
 
   constructor(private resultService: ResultService) {}
 
@@ -22,7 +22,6 @@ export class HomeComponent {
 
     if (checkbox1.checked) {
       this.total += 500;
-      this.total += this.importeComponenteHijo;
     }
 
     if (checkbox2.checked) {
@@ -34,9 +33,8 @@ export class HomeComponent {
     }
   }
 
-  sumarImporte(importe: number) {
-    this.importeComponenteHijo = importe;
-    this.calcularTotal(); // Actualizar el total cuando cambia el importe del componente hijo
+  actualizarPrecio(precio: number) {
+    this.precioTotal = precio;
   }
 
   mostrarInputs() {

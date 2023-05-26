@@ -1,27 +1,42 @@
-<div class="row p-2 rounded border border-dark bg-white">
-  <form [formGroup]="myForm">
-    <div class="d-flex">
-      <label for="numeroPaginas">Número de páginas</label>
-      <input
-        class="mx-2"
-        type="text"
-        id="numeroPaginas"
-        formControlName="numeroPaginas"
-        (input)="calcularResultado()"
-        (blur)="verificarVacio('numeroPaginas')"
-      />
+
+<div class="row py-3 px-2 rounded border border-dark bg-white">
+  <form>
+    <div class="col d-flex my-1 align-items-center">
+      <p class="my-0">Número de páginas</p>
+      <button
+        type="button"
+        class="btn btn-danger mx-2"
+        (click)="incrementarPaginas()"
+      >
+        +
+      </button>
+      <span>{{ numeroPaginas }}</span>
+      <button
+        type="button"
+        class="btn btn-danger mx-2"
+        (click)="decrementarPaginas()"
+      >
+        -
+      </button>
     </div>
-    <div class="d-flex">
-      <label for="numeroIdiomas">Número de idiomas</label>
-      <input
-        class="mx-2"
-        type="text"
-        id="numeroIdiomas"
-        formControlName="numeroIdiomas"
-        (input)="calcularResultado()"
-        (blur)="verificarVacio('numeroIdiomas')"
-      />
+
+    <div class="col d-flex align-items-center">
+      <p class="my-0">Número de Idiomas</p>
+      <button
+        type="button"
+        class="btn btn-danger mx-2"
+        (click)="incrementarIdiomas()"
+      >
+        +
+      </button>
+      <span>{{ numeroIdiomas }}</span>
+      <button
+        type="button"
+        class="btn btn-danger mx-2"
+        (click)="decrementarIdiomas()"
+      >
+        -
+      </button>
     </div>
   </form>
-  Importe: {{ importe }}€
-</div>
+ </div>
