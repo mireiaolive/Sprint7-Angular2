@@ -1,0 +1,27 @@
+<div class="row p-2 rounded border border-dark bg-white">
+  <form [formGroup]="myForm">
+    <div class="d-flex">
+      <label for="numeroPaginas">Número de páginas</label>
+      <input
+        class="mx-2"
+        type="text"
+        id="numeroPaginas"
+        formControlName="numeroPaginas"
+        (input)="calcularResultado()"
+        (blur)="verificarVacio('numeroPaginas')"
+      />
+    </div>
+    <div class="d-flex">
+      <label for="numeroIdiomas">Número de idiomas</label>
+      <input
+        class="mx-2"
+        type="text"
+        id="numeroIdiomas"
+        formControlName="numeroIdiomas"
+        (input)="calcularResultado()"
+        (blur)="verificarVacio('numeroIdiomas')"
+      />
+    </div>
+  </form>
+  Importe: {{ importe }}€
+</div>
