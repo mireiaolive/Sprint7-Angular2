@@ -1,47 +1,51 @@
-<div class="row justify-content-center text-center my-5">
-  <p class="fs-1">¿Qué quieres hacer?</p>
+<div class="p-3">
+    <button class="btn btn-primary" (click)="goBack()">Go back</button>
+</div>
 
-  <div class="col-4 text-start border border-4 bg-light p-4">
-    <label for="checkbox1">
-      <input
-        type="checkbox"
-        id="checkbox1"
-        name="checkbox1"
-        value="option1"
-        (change)="calcularTotal()"
-        [checked]="primerCheckbox"
-        (change)="mostrarInputsFlag = !mostrarInputsFlag"
-      />
-      Una página web (500 €)
-    </label>
-    <app-home-panell
-      *ngIf="mostrarInputsFlag"
-      (precioActualizado)="actualizarPrecio($event)"
-    ></app-home-panell>
-    <br />
-    <label for="checkbox2">
-      <input
-        type="checkbox"
-        id="checkbox2"
-        name="checkbox2"
-        value="option2"
-        (change)="calcularTotal()"
-      />
-      Una campaña SEO (300 €)
-    </label>
-    <br />
-    <label for="checkbox3">
-      <input
-        type="checkbox"
-        id="checkbox3"
-        name="checkbox3"
-        value="option3"
-        (change)="calcularTotal()"
-      />
-      Una campaña de Google Ads (200 €)
-    </label>
-  </div>
-  <div class="col-12 my-1">
-    <p class="fs-5">Precio: {{ precioTotal + total }}€</p>
-  </div>
+<div class="row justify-content-center text-center my-5">
+    <p class="fs-1">¿Qué quieres hacer?</p>
+
+    <div class="col-4 text-start border border-4 bg-light p-4">
+        <label for="checkbox1">
+            <input
+                type="checkbox"
+                id="checkbox1"
+                name="checkbox1"
+                value="option1"
+                (change)="calcularTotal()"
+                [checked]="primerCheckbox"
+                (change)="mostrarInputsFlag = !mostrarInputsFlag"
+            />
+            Una página web (500 €)
+        </label>
+        <app-home-panell
+            *ngIf="mostrarInputsFlag"
+            (precioActualizado)="actualizarPrecio($event)"
+        ></app-home-panell>
+        <br />
+        <label for="checkbox2">
+            <input
+                type="checkbox"
+                id="checkbox2"
+                name="checkbox2"
+                value="option2"
+                (change)="calcularTotal()"
+            />
+            Una campaña SEO (300 €)
+        </label>
+        <br />
+        <label for="checkbox3">
+            <input
+                type="checkbox"
+                id="checkbox3"
+                name="checkbox3"
+                value="option3"
+                (change)="calcularTotal()"
+            />
+            Una campaña de Google Ads (200 €)
+        </label>
+    </div>
+    <div class="col-12 my-1">
+        <p class="fs-5">Precio: {{ precioTotal + total }}€</p>
+    </div>
 </div>
