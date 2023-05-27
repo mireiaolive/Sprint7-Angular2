@@ -1,42 +1,81 @@
-
 <div class="row py-3 px-2 rounded border border-dark bg-white">
-  <form>
-    <div class="col d-flex my-1 align-items-center">
-      <p class="my-0">Número de páginas</p>
-      <button
-        type="button"
-        class="btn btn-danger mx-2"
-        (click)="incrementarPaginas()"
-      >
-        +
-      </button>
-      <span>{{ numeroPaginas }}</span>
-      <button
-        type="button"
-        class="btn btn-danger mx-2"
-        (click)="decrementarPaginas()"
-      >
-        -
-      </button>
-    </div>
+    <form>
+        <div class="col d-flex my-1 align-items-center">
+            <p class="my-0">Número de páginas</p>
+            <button
+                type="button"
+                class="btn btn-danger mx-2"
+                (click)="incrementarPaginas()"
+            >
+                +
+            </button>
+            <span>{{ numeroPaginas }}</span>
+            <button
+                type="button"
+                class="btn btn-danger mx-2"
+                (click)="decrementarPaginas()"
+            >
+                -
+            </button>
+            <button
+                type="button"
+                class="btn"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+            >
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
 
-    <div class="col d-flex align-items-center">
-      <p class="my-0">Número de Idiomas</p>
-      <button
-        type="button"
-        class="btn btn-danger mx-2"
-        (click)="incrementarIdiomas()"
-      >
-        +
-      </button>
-      <span>{{ numeroIdiomas }}</span>
-      <button
-        type="button"
-        class="btn btn-danger mx-2"
-        (click)="decrementarIdiomas()"
-      >
-        -
-      </button>
+        <div class="col d-flex align-items-center">
+            <p class="my-0">Número de Idiomas</p>
+            <button
+                type="button"
+                class="btn btn-danger mx-2"
+                (click)="incrementarIdiomas()"
+            >
+                +
+            </button>
+            <span>{{ numeroIdiomas }}</span>
+            <button
+                type="button"
+                class="btn btn-danger mx-2"
+                (click)="decrementarIdiomas()"
+            >
+                -
+            </button>
+            <button
+                type="button"
+                class="btn"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+            >
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
+    </form>
+
+    <!-- Modal -->
+    <div
+        class="modal fade custom-modal"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+        data-backdrop="static"
+        data-bs-dismiss="modal"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header rounded">
+                    <p class="modal-title fs-6" id="staticBackdropLabel">
+                        En este componente debe indicar el número de páginas que
+                        tendrá su sitio web.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </form>
- </div>
+</div>
