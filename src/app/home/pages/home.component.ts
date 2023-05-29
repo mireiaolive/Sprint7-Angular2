@@ -12,10 +12,17 @@ export class HomeComponent {
     mostrarInputsFlag: boolean = false;
     precioTotal: number = 0;
 
+    pressupostos: any[] = [];
+    nomPressupost: string = "";
+    client: string = "";
+    serveiSeleccionat: string[] = [];
+
     constructor(
         private resultService: ResultService,
         private location: Location
-    ) {}
+    ) {
+        this.pressupostos = this.resultService.getPressupostos();
+    }
 
     calcularTotal() {
         this.total = 0;
@@ -53,5 +60,21 @@ export class HomeComponent {
 
     goBack() {
         this.location.back();
+    }
+
+    enviarPresupuesto() {
+        const pressupost = {
+            nom: this.nomPressupost,
+            client: this.client,
+            servei: this.serveiSeleccionat,
+            preu: this.total,
+        };
+        console.log("Pressupost:", pressupost);
+        this.resultService.afegirPressupost(pressupost);
+
+        // Reiniciar los valores de los inputs después de enviar el presupuesto
+        this.nomPressupost = "";
+        this.client = "";
+        this.serveiSeleccionat = [];
     }
 }

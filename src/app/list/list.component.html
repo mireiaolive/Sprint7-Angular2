@@ -1,0 +1,7 @@
+<h1 class="mt-5">Listado</h1>
+<div class="col-10" *ngFor="let pressupost of pressupostos">
+    <p>Nom: {{ pressupost.nom }}</p>
+    <p>Client/a: {{ pressupost.client }}</p>
+    <p>Servei: {{ pressupost.servei }}</p>
+    <p>Preu: {{ pressupost.preu }}€</p>
+</div>

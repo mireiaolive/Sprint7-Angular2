@@ -1,4 +1,6 @@
-.container {
-    width: 100vw;
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
 }
