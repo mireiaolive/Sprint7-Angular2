@@ -26,6 +26,7 @@ export class HomeComponent {
 
     calcularTotal() {
         this.total = 0;
+        this.serveiSeleccionat = [];
 
         const checkbox1 = document.getElementById(
             "checkbox1"
@@ -39,14 +40,17 @@ export class HomeComponent {
 
         if (checkbox1.checked) {
             this.total += 500;
+            this.serveiSeleccionat.push("Una página web (500 €) ");
         }
 
         if (checkbox2.checked) {
             this.total += 300;
+            this.serveiSeleccionat.push("Una campaña SEO (300 €)");
         }
 
         if (checkbox3.checked) {
             this.total += 200;
+            this.serveiSeleccionat.push("Una campaña de Google Ads (200 €) ");
         }
     }
 
@@ -67,7 +71,7 @@ export class HomeComponent {
             nom: this.nomPressupost,
             client: this.client,
             servei: this.serveiSeleccionat,
-            preu: this.total,
+            preu: this.total + this.precioTotal,
         };
         console.log("Pressupost:", pressupost);
         this.resultService.afegirPressupost(pressupost);
@@ -76,5 +80,7 @@ export class HomeComponent {
         this.nomPressupost = "";
         this.client = "";
         this.serveiSeleccionat = [];
+        this.total = 0;
+        this.precioTotal = 0;
     }
 }
