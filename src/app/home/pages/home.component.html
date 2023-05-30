@@ -12,7 +12,7 @@
 
         <div class="col-7 border border-4 bg-light p-4">
             <div class="form-group">
-                <label for="nomPressupost">Nombre del pressupost:</label>
+                <label for="nomPressupost">Nombre del presupuesto:</label>
                 <input
                     type="text"
                     class="form-control"
@@ -40,7 +40,7 @@
                     [checked]="primerCheckbox"
                     (change)="mostrarInputsFlag = !mostrarInputsFlag"
                 />
-                Una página web (500 €)
+                Página web (500 €)
             </label>
             <app-home-panell
                 *ngIf="mostrarInputsFlag"
@@ -55,7 +55,7 @@
                     value="option2"
                     (change)="calcularTotal()"
                 />
-                Una campaña SEO (300 €)
+                Campaña SEO (300 €)
             </label>
             <br />
             <label for="checkbox3">
@@ -66,20 +66,20 @@
                     value="option3"
                     (change)="calcularTotal()"
                 />
-                Una campaña de Google Ads (200 €)
+                Campaña de Google Ads (200 €)
             </label>
         </div>
         <div class="col-12 my-1">
             <p class="fs-5">Precio: {{ precioTotal + total }}€</p>
         </div>
         <div class="col-12 my-1">
-            <button class="btn btn-primary" (click)="enviarPresupuesto()">
+            <button class="btn btn-success" (click)="enviarPresupuesto()">
                 Enviar
             </button>
         </div>
     </div>
     <div class="row">
-        <div class="col-12" style="width: 500px">
+        <div class="col-12" style="width: 580px">
             <app-list [pressupostos]="pressupostos"></app-list>
         </div>
     </div>

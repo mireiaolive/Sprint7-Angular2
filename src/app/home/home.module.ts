@@ -5,9 +5,10 @@ import { HomeComponent } from "./pages/home.component";
 import { PanellComponent } from "./componentes/panell/panell.component";
 import { ListComponent } from "../list/list.component";
 import { FormsModule } from "@angular/forms";
+import { FilterPipe } from "../filter.pipe";
 
 @NgModule({
-    declarations: [HomeComponent, PanellComponent, ListComponent],
+    declarations: [HomeComponent, PanellComponent, ListComponent, FilterPipe],
     exports: [HomeComponent, ListComponent],
     imports: [CommonModule, ReactiveFormsModule, FormsModule],
 })

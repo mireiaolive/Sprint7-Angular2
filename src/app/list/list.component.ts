@@ -7,12 +7,14 @@ import { ResultService } from "../home/services/result.service";
     styleUrls: ["./list.component.css"],
 })
 export class ListComponent {
-    constructor(private resultService: ResultService) {}
     @Input() pressupostos: any[] = [];
 
     pressupostosFiltrats: any[] = [];
     ordreAlfabetic: boolean = false;
     ordreData: boolean = false;
+    cercador: string = "";
+
+    constructor(private resultService: ResultService) {}
 
     ordenarAlfabeticament() {
         this.pressupostos.sort((a, b) => a.nom.localeCompare(b.nom));
