@@ -1,7 +1,40 @@
-<h1 class="mt-5">Listado</h1>
-<div class="col-10" *ngFor="let pressupost of pressupostos">
-    <p>Nombre: {{ pressupost.nom }}</p>
-    <p>Cliente/a: {{ pressupost.client }}</p>
-    <p>Servicio: {{ pressupost.servei.join(", ") }}</p>
-    <p>Precio: {{ pressupost.preu }}€</p>
+<h1>Listado presupuestos</h1>
+<!-- Botons d'ordenació i reinicialització -->
+
+<button
+    class="btn btn-primary my-1"
+    (click)="ordenarAlfabeticament()"
+    [disabled]="ordreAlfabetic"
+>
+    <i class="fa-solid fa-arrow-up-a-z"></i>
+</button>
+<button
+    class="btn btn-primary my-1 mx-2"
+    (click)="ordenarPerData()"
+    [disabled]="ordreData"
+>
+    <i class="fa-solid fa-calendar-days"></i>
+</button>
+<button
+    class="btn btn-primary my-1"
+    (click)="reinicialitzarOrdre()"
+    [disabled]="!(ordreAlfabetic || ordreData)"
+>
+    <i class="fa-solid fa-rotate"></i>
+</button>
+
+<div class="col-12">
+    <p *ngFor="let pressupost of pressupostos">
+        {{
+            "Nombre: " +
+                pressupost.nom +
+                ", Cliente/a: " +
+                pressupost.client +
+                ", Servicio: " +
+                pressupost.servei.join(", ") +
+                ", Precio: " +
+                pressupost.preu +
+                "€"
+        }}
+    </p>
 </div>
