@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ResultService } from "../services/result.service";
 import { Location } from "@angular/common";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-home",
@@ -19,7 +20,8 @@ export class HomeComponent {
 
     constructor(
         private resultService: ResultService,
-        private location: Location
+        private location: Location,
+        private router: Router
     ) {
         this.pressupostos = this.resultService.getPressupostos();
     }
@@ -82,5 +84,17 @@ export class HomeComponent {
         this.serveiSeleccionat = [];
         this.total = 0;
         this.precioTotal = 0;
+    }
+
+    navegar() {
+        this.router.navigate([], {
+            queryParams: {
+                nom: this.nomPressupost,
+                client: this.client,
+                servei: this.serveiSeleccionat,
+                preu: this.total + this.precioTotal,
+            },
+            queryParamsHandling: "merge",
+        });
     }
 }

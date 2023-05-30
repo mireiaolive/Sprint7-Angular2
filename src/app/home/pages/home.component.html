@@ -73,7 +73,11 @@
             <p class="fs-5">Precio: {{ precioTotal + total }}€</p>
         </div>
         <div class="col-12 my-1">
-            <button class="btn btn-success" (click)="enviarPresupuesto()">
+            <button
+                class="btn btn-success"
+                (click)="navegar()"
+                (click)="enviarPresupuesto()"
+            >
                 Enviar
             </button>
         </div>
