@@ -17,6 +17,7 @@ export class HomeComponent {
     nomPressupost: string = "";
     client: string = "";
     serveiSeleccionat: string[] = [];
+    data: Date = new Date();
 
     constructor(
         private resultService: ResultService,
@@ -74,6 +75,7 @@ export class HomeComponent {
             client: this.client,
             servei: this.serveiSeleccionat,
             preu: this.total + this.precioTotal,
+            data: this.data,
         };
         console.log("Pressupost:", pressupost);
         this.resultService.afegirPressupost(pressupost);
